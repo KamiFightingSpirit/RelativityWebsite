@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Landing Page for my Relativity Website</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Required dependencies -->
+    <script src="./node_modules/pixi.js/dist/pixi.js"></script>
+    <script src="./node_modules/pixi-particles/dist/pixi-particles.js"></script>
+    <script
+      type="text/javascript"
+      src="./node_modules/tween.js/dist/tween.umd.js"
+    ></script>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./timeDilationToolbar.css" />
+    <link rel="stylesheet" href="./text.css" />
+  </head>
+  <body>
+    <div id="timeDilationToolbar">
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderShipboardYears"></div>
+          <span>:</span>
+          <div id="renderShipboardMonths"></div>
+          <span>:</span>
+          <div id="renderShipboardDays"></div>
+        </div>
+        <div class="timeTextRow">Shipboard Time</div>
+      </div>
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderExternalYears"></div>
+          <span>:</span>
+          <div id="renderExternalMonths"></div>
+          <span>:</span>
+          <div id="renderExternalDays"></div>
+        </div>
+        <div class="timeTextRow">External Time</div>
+      </div>
+      <div id="percentageSpeedOfLightContainer">
+        <div id="speedOfLightTextTop">Ship's Average Speed</div>
+        <div id="renderSpeedOfLight"></div>
+
+        <div id="speedOfLightTextBottom">Speed of Light</div>
+      </div>
+      <div id="socialMediaLinks">Social Media Placeholder</div>
+    </div>
+
+    <!-- <span class="textBody">
+      <h3>About This Site:</h3>
+      <p>
+        Hello and thanks for taking the time to visit my site! To get right to
+        it, the big idea is that you are an astronaut (or Space Cowboy for
+        fellow Cowboy Bebop fans) exploring the universe and experiencing the
+        fascinating effects of time dilation; a favorite subject of mine. The
+        site itself walks you through my professional experience, which you can
+        do by clicking on the different planets in the solar system. As each of
+        the planets covers a period of my life and the amount of time you take
+        to go through the site covers a period in yours, I thought it would be
+        fun to explore that relative time cost.
+      </p>
+      <h4>How it Works:</h4>
+      <p>
+        By clicking a planet to read a portion of the site the "External Time"
+        portion of the top banner will increase. Additionally, for every two
+        seconds you remain on the site a day passes on your hypothetical
+        intergalactic ship. I chose two seconds for simplicities sake as it
+        roughly makes a minute equal a month.
+      </p>
+      <h4>Why:</h4>
+      <p>
+        Most importantly, this was my first major project as I continue to learn
+        web development and improve my programming skills. As such, it is an
+        educational tool and also a piece of my portfolio for others to see.
+      </p>
+      <p>
+        As an educational tool it has been incredible. I didn't set out thinking
+        I would do something within the animation realm but it took that path as
+        my goal was ambitious. This meant learning the frameworks for Web GL as
+        well as the Pixi.js library that I used for the graphical elements on
+        the site. While more of a niche for most web development work, the same
+        programming frameworks are universal.
+      </p>
+    </span> -->
+
+    <canvas id="canvas" width="400" height="400"> </canvas>
+
+    <script type="module" src="./javascript/AboutSite.js"></script>
+  </body>
+</html>

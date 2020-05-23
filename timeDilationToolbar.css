@@ -1,0 +1,102 @@
+#timeDilationToolbar {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 12%;
+  background-color: #191919;
+  background: radial-gradient(ellipse at center, #0d2f3a 15%, #191919 70%);
+  font-family: "Share Tech Mono", monospace;
+  color: silver;
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr) auto;
+  justify-items: center;
+  z-index: 2;
+  /* border: 1px solid purple; */
+}
+
+#goBackKey {
+  font-size: 2rem;
+  padding: 8px 5px 55px 5px;
+  margin: 0.75rem 0 0 2rem;
+  height: 50%;
+  background-color: #0c0d0c;
+  color: white;
+  border: 2px solid silver;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+#goBackKey:hover {
+  background-color: #1e1f1e;
+  border: 2px solid rgb(255, 123, 0);
+}
+
+/* Year Month Date text */
+.dateTextRow {
+  padding-top: 0.4rem;
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr 3px 1fr;
+  font-size: 0.7rem;
+  justify-items: center;
+  /* border: 1px solid green; */
+}
+/* Renders Numbers */
+.timeRenderRow {
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr 3px 1fr;
+  font-size: 1.5rem;
+  justify-items: center;
+  /* border: 1px solid blue; */
+}
+/* Shipboard Time/External Time */
+.timeTextRow {
+  font-size: 1.2rem;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+#percentageSpeedOfLightContainer {
+  display: grid;
+  grid-template-rows: 10px 1fr 1fr;
+}
+
+#speedOfLightTextTop {
+  padding-top: 0.4rem;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+#renderSpeedOfLight {
+  font-size: 2rem;
+  color: rgb(74, 129, 48);
+  margin-top: 0.4rem;
+  text-align: center;
+}
+#speedOfLightTextBottom {
+  font-size: 1.2rem;
+  margin-top: -6px;
+  text-align: center;
+}
+
+#socialMediaLinks {
+  font-size: 2rem;
+  color: #237590;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.1rem;
+  margin-right: 2rem;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.socialMediaLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.socialMediaLink:hover {
+  color: white;
+}

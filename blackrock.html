@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-166908201-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-166908201-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>BlackRock Work History</title>
+
+    <!-- Required dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="./node_modules/pixi.js/dist/pixi.js"></script>
+    <script src="./node_modules/pixi-particles/dist/pixi-particles.js"></script>
+
+    <!-- Styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="timeDilationToolbar.css" />
+    <link rel="stylesheet" href="text.css" />
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <div id="timeDilationToolbar">
+      <div id="goBackKey">Go Back</div>
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderShipboardYears"></div>
+          <span>:</span>
+          <div id="renderShipboardMonths"></div>
+          <span>:</span>
+          <div id="renderShipboardDays"></div>
+        </div>
+        <div class="timeTextRow">Shipboard Time</div>
+      </div>
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderExternalYears"></div>
+          <span>:</span>
+          <div id="renderExternalMonths"></div>
+          <span>:</span>
+          <div id="renderExternalDays"></div>
+        </div>
+        <div class="timeTextRow">External Time</div>
+      </div>
+      <div id="percentageSpeedOfLightContainer">
+        <div id="speedOfLightTextTop">Ship's Average Speed</div>
+        <div id="renderSpeedOfLight">-.--</div>
+
+        <div id="speedOfLightTextBottom">Speed of Light</div>
+      </div>
+      <div id="socialMediaLinks">
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://github.com/KamiFightingSpirit"
+            target="blank"
+            ><i class="fab fa-github"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://www.linkedin.com/in/andrew-dehuff"
+            target="blank"
+            ><i class="fab fa-linkedin"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="mailto:ad3kc@virginia.edu"
+            target="blank"
+            ><i class="fas fa-envelope"></i></a
+        ></span>
+      </div>
+    </div>
+    <span class="text">
+      <h3>Company - BlackRock:</h3>
+      <h5>Title - Client Services Analyst</h5>
+      <h5>Years - 2017 through 2018</h5>
+      <div class="textBody">
+        <p>
+          As an analyst, my primary responsibility was to provide the first line
+          of operational liaison services and advising clients on the uses of
+          BlackRock’s software for all trading and portfolio management
+          functions.
+        </p>
+        <p>
+          While working for BlackRock I quickly found that the most enjoyable
+          part of the job was working with SQL as it flexed the analytical
+          attributes that I have always found the most satisfying. For that
+          reason, I maximized my time studying and writing queries in SQL,
+          grabbing every request that I could get my hands on.
+        </p>
+        <p>
+          Additionally, while working here I helped redesign the department
+          training program, expediting it by months and achieving significant
+          cost savings. I also personally trained the new SF analysts and
+          customized the training program to better fit the smaller office where
+          I worked.
+        </p>
+      </div>
+    </span>
+
+    <canvas id="canvas" width="400" height="400"> </canvas>
+
+    <script type="module" src="./javascript/BlackRock.js"></script>
+    <!-- <script type="module" src="index.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-166908201-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-166908201-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>About Site - Website Description</title>
+    <!-- Required dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="./node_modules/pixi.js/dist/pixi.js"></script>
+    <script src="./node_modules/pixi-particles/dist/pixi-particles.js"></script>
+
+    <!-- Styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="timeDilationToolbar.css" />
+    <link rel="stylesheet" href="text.css" />
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <div id="timeDilationToolbar">
+      <div id="goBackKey">Go Back</div>
+
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderShipboardYears"></div>
+          <span>:</span>
+          <div id="renderShipboardMonths"></div>
+          <span>:</span>
+          <div id="renderShipboardDays"></div>
+        </div>
+        <div class="timeTextRow">Shipboard Time</div>
+      </div>
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderExternalYears"></div>
+          <span>:</span>
+          <div id="renderExternalMonths"></div>
+          <span>:</span>
+          <div id="renderExternalDays"></div>
+        </div>
+        <div class="timeTextRow">External Time</div>
+      </div>
+      <div id="percentageSpeedOfLightContainer">
+        <div id="speedOfLightTextTop">Ship's Average Speed</div>
+        <div id="renderSpeedOfLight">-.--</div>
+
+        <div id="speedOfLightTextBottom">Speed of Light</div>
+      </div>
+      <div id="socialMediaLinks">
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://github.com/KamiFightingSpirit"
+            target="blank"
+            ><i class="fab fa-github"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://www.linkedin.com/in/andrew-dehuff"
+            target="blank"
+            ><i class="fab fa-linkedin"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="mailto:ad3kc@virginia.edu"
+            target="blank"
+            ><i class="fas fa-envelope"></i></a
+        ></span>
+      </div>
+    </div>
+    <span class="text">
+      <h3>About This Site:</h3>
+      <p class="textBody">
+        Hello and thanks for taking the time to visit my site! To get right to
+        it, the big idea is that you are an astronaut (or Space Cowboy for
+        fellow Cowboy Bebop fans) exploring the universe and experiencing the
+        fascinating effects of time dilation; a favorite subject of mine. The
+        site itself is a digital resume and, by clicking the planets in the
+        solar system it walks you through my professional experience. As each of
+        the planets covers a period of my life and the amount of time you take
+        to go through the site covers a period in yours, I thought it would be
+        fun to explore that relative time cost via time dilation.
+      </p>
+      <h3>How it Works:</h3>
+      <p class="textBody">
+        By clicking a planet to read a portion of the site the "External Time"
+        portion of the time dilation banner at the top of each page will
+        increase. Additionally, for every second you remain on the site a day
+        passes on your hypothetical intergalactic ship.
+      </p>
+      <h3>Why:</h3>
+      <p class="textBody">
+        Most importantly, this was my first major project as I continue to learn
+        web development and improve my programming skills. As such, it is an
+        educational tool and also a piece of my portfolio for others to see.
+      </p>
+      <p class="textBody">
+        As an educational tool it has been incredible. I didn't set out thinking
+        I would do something within the animation realm but it took that path as
+        my goal was ambitious. This meant learning the frameworks for Web GL as
+        well as the Pixi.js library that I used for the graphical elements on
+        the site.
+      </p>
+    </span>
+
+    <canvas id="canvas" width="400" height="400"> </canvas>
+
+    <script type="module" src="./javascript/AboutSite.js"></script>
+    <!-- <script type="module" src="index.js"></script> -->
+  </body>
+</html>

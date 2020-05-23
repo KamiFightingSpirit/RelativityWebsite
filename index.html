@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-166908201-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-166908201-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>Blackhole Entry Page</title>
+
+    <!-- Required dependencies -->
+    <script src="./node_modules/pixi.js/dist/pixi.js"></script>
+    <script src="./node_modules/pixi-particles/dist/pixi-particles.js"></script>
+    <script src="./node_modules/pixi-layers/dist/pixi-layers.js"></script>
+    <script
+      type="text/javascript"
+      src="./node_modules/tween.js/dist/tween.umd.js"
+    ></script>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <canvas id="canvas" width="400" height="400"> </canvas>
+
+    <!-- Landing Page-->
+    <script src="./blackhole.js"></script>
+  </body>
+</html>

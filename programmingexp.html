@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-166908201-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-166908201-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>My Programming Experience</title>
+
+    <!-- Required dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="./node_modules/pixi.js/dist/pixi.js"></script>
+    <script src="./node_modules/pixi-particles/dist/pixi-particles.js"></script>
+
+    <!-- Styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="timeDilationToolbar.css" />
+    <link rel="stylesheet" href="text.css" />
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <div id="timeDilationToolbar">
+      <div id="goBackKey">Go Back</div>
+
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderShipboardYears"></div>
+          <span>:</span>
+          <div id="renderShipboardMonths"></div>
+          <span>:</span>
+          <div id="renderShipboardDays"></div>
+        </div>
+        <div class="timeTextRow">Shipboard Time</div>
+      </div>
+      <div class="timeRenderContainer">
+        <div class="dateTextRow">
+          <span>Years</span>
+          <span>:</span>
+          <span>Months</span>
+          <span>:</span>
+          <span>Days</span>
+        </div>
+        <div class="timeRenderRow">
+          <div id="renderExternalYears"></div>
+          <span>:</span>
+          <div id="renderExternalMonths"></div>
+          <span>:</span>
+          <div id="renderExternalDays"></div>
+        </div>
+        <div class="timeTextRow">External Time</div>
+      </div>
+      <div id="percentageSpeedOfLightContainer">
+        <div id="speedOfLightTextTop">Ship's Average Speed</div>
+        <div id="renderSpeedOfLight">-.--</div>
+
+        <div id="speedOfLightTextBottom">Speed of Light</div>
+      </div>
+      <div id="socialMediaLinks">
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://github.com/KamiFightingSpirit"
+            target="blank"
+            ><i class="fab fa-github"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="https://www.linkedin.com/in/andrew-dehuff"
+            target="blank"
+            ><i class="fab fa-linkedin"></i></a
+        ></span>
+        <span
+          ><a
+            class="socialMediaLink"
+            href="mailto:ad3kc@virginia.edu"
+            target="blank"
+            ><i class="fas fa-envelope"></i></a
+        ></span>
+      </div>
+    </div>
+    <span class="text">
+      <h3>Tech and Programming Experience:</h3>
+      <h5>Years - 2009 through Today</h5>
+      <div class="textBody">
+        <h5>Coursework:</h5>
+        <table>
+          <tr>
+            <th>Course Name</th>
+            <th>Link</th>
+          </tr>
+          <tr>
+            <td>FreeCodeCamp</td>
+            <td>
+              <a href="https://www.freecodecamp.org/" target="blank"
+                >www.freecodecamp.org</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>The Web Developer Bootcamp</td>
+            <td>
+              <a
+                href="https://www.udemy.com/course/the-web-developer-bootcamp/"
+                target="blank"
+                >www.udemy.com/course/the-web-developer-bootcamp
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>The Modern React Bootcamp</td>
+            <td>
+              <a
+                href="https://www.udemy.com/course/modern-react-bootcamp/"
+                target="blank"
+                >www.udemy.com/course/modern-react-bootcamp</a
+              >
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <th>Current Work</th>
+            <th>Link</th>
+          </tr>
+          <tr>
+            <td>Volunteer Teacher - League of Amazing Programmers</td>
+            <td>
+              <a href="https://www.jointheleague.org/" target="blank"
+                >www.jointheleague.org</a
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>JavaScript Algorithms and Data Structures</td>
+            <td>
+              <a
+                href="https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/"
+                target="blank"
+                >www.udemy.com/course/js-algorithms-and-data-structures</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <h5>History:</h5>
+        <p>
+          My first foray into coding really began on Neopets. For those
+          unfamiliar, Neopets is a website in a similar vein as Tamagotchi pets,
+          where you choose and care for a virtual pet. There, I set up the HTML
+          links for a mall that I ran by mapping them to marketing images I
+          created. The "malls" on the site were player creations that joined
+          eight or so shops together; each receiving the benefit of traffic from
+          the others. Being the entrepreneurial spirit that I am, I went one
+          step further and positioned myself as head of a single mall consisting
+          of multiple smaller malls, whereby I could have around 30 stores
+          linking to my shop and generating about 500k Neopoints per day. Greedy
+          much?
+        </p>
+        <p>
+          While running my own company Cyberburn, I leveraged and extended this
+          knowledge. There, I wrote the product pages and dabbled in the SEO for
+          my websites. While this was only dipping my toe into the programming
+          world, it did pique my interest and it became something that I always
+          wanted to study but never seemed to have the time to.
+        </p>
+        <p>
+          Upon entering my first corporate position at BlackRock, I used SQL
+          daily. I quickly discovered that this was the most enjoyable part of
+          the job and spent most of my time studying SQL and writing queries.
+          This interest continued at Bridgewater where I not only continued to
+          use SQL, albeit sparingly, but also built bespoke analytical models.
+          The models within Finance use the same analytical frameworks as
+          putting together good, clean code. This has assisted me significantly
+          as I study and improve my programming.
+        </p>
+        <p>
+          After leaving Bridgewater, I decided to give programming my all. From
+          here I have gone through FreeCodeCamp.org's courses as well as Colt
+          Steele's Web Developer Bootcamp and The Modern React Bootcamp on
+          Udemy. I continue to study daily and am currently targeting data
+          structure and algorithm knowledge. I also volunteer for the League of
+          Amazing Programmers. Which is a wonderful non-profit that teaches kids
+          how to code in Java and gives them the opportunity to study to be a
+          software engineer while still in highschool! If you wish to learn more
+          about this wonderful orgranization click
+          <a href="https://www.jointheleague.org/" target="blank">HERE</a>. I
+          absolutely love learning programming and already have far too many
+          ideas that I wish to implement, this site being the first.
+        </p>
+      </div>
+    </span>
+
+    <canvas id="canvas" width="400" height="400"> </canvas>
+
+    <script type="module" src="./javascript/ProgrammingExp.js"></script>
+  </body>
+</html>
