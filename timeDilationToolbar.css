@@ -1,8 +1,8 @@
 #timeDilationToolbar {
   position: fixed;
-  top: 0%;
+  top: 0;
   width: 100%;
-  height: 12%;
+  height: 100px;
   background-color: #191919;
   background: radial-gradient(ellipse at center, #0d2f3a 15%, #191919 70%);
   font-family: "Share Tech Mono", monospace;
