@@ -1,5 +1,5 @@
-import { Assets } from "./assets.js";
-import { Planets } from "./aplanets.js";
+import { Assets } from "./assets_CodeRefactor.js";
+import { Planets } from "./planets_CodeRefactor.js";
 // import { helperFunction } from "./ahelperfunctions.js";
 
 export class Application {

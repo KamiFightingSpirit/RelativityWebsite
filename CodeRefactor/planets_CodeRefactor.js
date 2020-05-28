@@ -1,4 +1,4 @@
-import { helperFunction } from "./ahelperfunctions.js";
+import { helperFunction } from "./helperfunctions_CodeRefactor.js";
 
 export class Planets {
   constructor(app) {
@@ -27,13 +27,6 @@ export class Planets {
     stage.addChild(planetContainer);
 
     this.app.planets = planetContainer.children;
-
-    const infoGroup = new PIXI.display.Group(50000, false);
-    const planetGroup = new PIXI.display.Group(0, true);
-    stage.addChild(new PIXI.display.Layer(infoGroup));
-    console.log(stage.children);
-    stage.addChild(new PIXI.display.Layer(planetGroup));
-    planetContainer.parentGroup = planetGroup;
 
     //Cinzel|Noto+Serif|Titilliu
     const planetTextOptions = {
@@ -66,7 +59,7 @@ export class Planets {
     sunText.style.align = "center";
     sunInfo.addChild(sunText);
 
-    let sunTexture = loader.resources["sunShrunk.jpg"].texture;
+    let sunTexture = loader.resources["sunShrunk1.jpg"].texture;
     sunTexture.frame = new PIXI.Rectangle(2, 0, 200, 100);
     let sunGraphic = new PIXI.Graphics()
       .lineStyle(12, 0xcc9f4c, 0.15, 0.5)
@@ -79,7 +72,6 @@ export class Planets {
     sunGraphic.info = sunInfo;
     sunGraphic.name = "sun";
     planetContainer.addChild(sunGraphic);
-    sunGraphic.parentGroup = planetGroup;
 
     //add a background sun to create a double layered corona for the sun
     let backgroundSun = new PIXI.Graphics();
@@ -91,7 +83,7 @@ export class Planets {
     ];
     planetContainer.addChild(backgroundSun);
 
-    let plutoTexture = loader.resources["plutomap1k.jpg"].texture;
+    let plutoTexture = loader.resources["blackrock.jpg"].texture;
     plutoTexture.frame = new PIXI.Rectangle(0, 0, 200, 250); //Texture.frame (x, y, width, height)
     let plutoGraphic = new PIXI.Graphics()
       .lineStyle(7, 0xc3b6aa, 0.25, 0.5) //add atmostphere
@@ -104,7 +96,6 @@ export class Planets {
     plutoGraphic.hovering = false;
 
     planetContainer.addChild(plutoGraphic);
-    plutoGraphic.parentGroup = planetGroup;
 
     //create an infographic for on hover
     let plutoInfo = new PIXI.Graphics()
@@ -132,7 +123,6 @@ export class Planets {
       .drawRoundedRect(0, 0, 400, 200, 50);
     // marsInfo.zIndex = 10000;
     marsInfo.visible = false;
-    marsInfo.parentGroup = infoGroup;
 
     let marsText = new PIXI.Text(
       "Name: Bridgewater \nTitle: Associate \nYears: 2017-2018",
@@ -142,7 +132,7 @@ export class Planets {
     marsText.position.set(48, 35); //moves text within the box
     marsInfo.addChild(marsText);
 
-    let marsTexture = loader.resources["mars.jpg"].texture;
+    let marsTexture = loader.resources["blackrock.jpg"].texture;
     marsTexture.frame = new PIXI.Rectangle(-250, -150, 250, 150);
     let marsGraphic = new PIXI.Graphics()
       .lineStyle(8, 0xc07158, 0.25, 0.8) //add atmostphere
@@ -174,7 +164,7 @@ export class Planets {
     cyberburnText.position.set(20, 30); //moves text within the box
     cyberburnInfo.addChild(cyberburnText);
 
-    let cyberburnTexture = loader.resources["earthcloudmap.jpg"].texture;
+    let cyberburnTexture = loader.resources["cyberburn.jpg"].texture;
     cyberburnTexture.frame = new PIXI.Rectangle(0, 0, 400, 400); //Texture.frame (x, y, width, height)
     let cyberburnGraphic = new PIXI.Graphics()
       .lineStyle(18, 0xb3caff, 0.25, 0.5) //add atmostphere

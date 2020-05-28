@@ -4,21 +4,15 @@ export class Assets {
   }
   init() {
     const loader = this.app.loader;
-    loader.baseUrl = "./assets/";
+    loader.baseUrl = "../assets/";
     loader
-      .add("earthcloudmap.jpg") //cyberburn
-      .add("jupiter1k.jpg")
-      .add("jupitermap.jpg")
-      .add("mars.jpg") //mars
-      .add("mercurymap.jpg")
-      .add("plutomap1k.jpg") //pluto
-      .add("plutoShrunk.jpg")
-      .add("sun.jpg")
-      .add("sunShrunk.jpg") //sun
-      .add("venusbump.jpg")
-      .add("venusmap.jpg")
-      .add("bgassets/particlefromeditor.png");
-
+      .add("jupiter1k.jpg") //programmingexp
+      .add("blackrock.jpg") //Blackrock
+      .add("sunTest.jpg") //tester for sun - smaller image
+      .add("sunShrunk1.jpg") //AboutThisSite-Sun
+      .add("cyberburn.jpg") //Cyberburn
+      .add("bridgewater.jpg") //Bridgewater
+      .add("bgassets/particlefromeditor.png"); //used for stars
     loader.load(() => {
       this.app.runners.load.run();
     });
