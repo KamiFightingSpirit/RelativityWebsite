@@ -1,4 +1,5 @@
 import { helperFunction } from "./helperfunctions_CodeRefactor.js";
+import { planetLink } from "./planetLink.js";
 
 export class Planets {
   constructor(app) {
@@ -10,13 +11,14 @@ export class Planets {
      * you do this by writing this.XXXX = {foobar}
      * I want this so that any helper functions I setup can access the properties needed
      */
-
+    //instantiate application variables
     const _ = void 0;
-    const stage = this.app.stage;
-    const loader = this.app.loader;
-    const ticker = this.app.ticker;
     const renderer = this.app.renderer;
+    const stage = this.app.stage;
+    const ticker = this.app.ticker;
+    const loader = this.app.loader;
 
+    //create a main container to hold the planets
     const planetContainer = new PIXI.Container();
     planetContainer.scale.y = 0.2;
     planetContainer.scale.x = 0.5;
@@ -72,12 +74,8 @@ export class Planets {
     sunGraphic.interactive = true;
     sunGraphic.hovering = false;
     sunGraphic.info = sunInfo;
+    sunGraphic.url = "https://andrewdehuff.me/aboutsite.html";
     planetContainer.addChild(sunGraphic);
-
-    sunGraphic.on("pointerdown", function () {
-      let target = "https://andrewdehuff.me/aboutsite.html";
-      window.location = target;
-    });
 
     //add a background sun to create a double layered corona for the sun
     let backgroundSun = new PIXI.Graphics();
@@ -118,12 +116,8 @@ export class Planets {
     blackrockGraphic.interactive = true;
     blackrockGraphic.hovering = false;
     blackrockGraphic.info = blackrockInfo;
+    blackrockGraphic.url = "https://andrewdehuff.me/blackrock.html";
     planetContainer.addChild(blackrockGraphic);
-
-    blackrockGraphic.on("pointerdown", function () {
-      let target = "https://andrewdehuff.me/blackrock.html";
-      window.location = target;
-    });
 
     let bridgewaterInfo = new PIXI.Graphics()
       .lineStyle(2, 0xc07158)
@@ -153,12 +147,8 @@ export class Planets {
     bridgewaterGraphic.interactive = true;
     bridgewaterGraphic.hovering = false;
     bridgewaterGraphic.info = bridgewaterInfo;
+    bridgewaterGraphic.url = "https://andrewdehuff.me/bridgewater.html";
     planetContainer.addChild(bridgewaterGraphic);
-
-    bridgewaterGraphic.on("pointerdown", function () {
-      let target = "https://andrewdehuff.me/bridgewater.html";
-      window.location = target;
-    });
 
     //create an infographic for on hover
     let cyberburnInfo = new PIXI.Graphics()
@@ -189,12 +179,8 @@ export class Planets {
     cyberburnGraphic.interactive = true;
     cyberburnGraphic.hovering = false;
     cyberburnGraphic.info = cyberburnInfo;
+    cyberburnGraphic.url = "https://andrewdehuff.me/cyberburn.html";
     planetContainer.addChild(cyberburnGraphic);
-
-    cyberburnGraphic.on("pointerdown", function () {
-      let target = "https://andrewdehuff.me/cyberburn.html";
-      window.location = target;
-    });
 
     //create an infographic for on hover
     let programmingExpInfo = new PIXI.Graphics()
@@ -226,13 +212,20 @@ export class Planets {
     programmingExpGraphic.interactive = true;
     programmingExpGraphic.hovering = false;
     programmingExpGraphic.info = programmingExpInfo;
+    programmingExpGraphic.url = "https://andrewdehuff.me/programmingexp.html";
     planetContainer.addChild(programmingExpGraphic);
 
-    programmingExpGraphic.on("pointerdown", function () {
-      let target = "https://andrewdehuff.me/programmingexp.html";
-      window.location = target;
-    });
-
+    //add in the links for each planet
+    const planetArr = [
+      sunGraphic,
+      blackrockGraphic,
+      bridgewaterGraphic,
+      cyberburnGraphic,
+      programmingExpGraphic,
+    ];
+    for (let planet of planetArr) {
+      planetLink(planet);
+    }
     let sunOrbitControl = {
       graphic: sunGraphic,
       texture: sunTexture,
@@ -464,22 +457,22 @@ function hoverEffects() {
 
 //THIS WILL CHANGE TO RESIZING THE RENDERER
 // Center emitter upon window resize
-window.onresize = function () {
-  //resize the canvas to the size of the window
-  let _w = window.innerWidth;
-  let _h = window.innerHeight;
-  app.renderer.resize(_w, _h);
+// window.onresize = function () {
+//   //resize the canvas to the size of the window
+//   let _w = window.innerWidth;
+//   let _h = window.innerHeight;
+//   renderer.resize(_w, _h);
 
-  //recenters all containers upon resize.
-  app.stage.children.map((container) => {
-    container.name === "planetContainer"
-      ? container.position.set(
-          app.renderer.screen.width / 2,
-          app.renderer.screen.height / 2
-        )
-      : container.name === "staticStarContainer"
-      ? ""
-      : "";
-  });
-};
-window.addEventListener("resize", window.onresize());
+//   //recenters all containers upon resize.
+//   stage.children.map((container) => {
+//     container.name === "planetContainer"
+//       ? container.position.set(
+//           renderer.screen.width / 2,
+//           renderer.screen.height / 2
+//         )
+//       : container.name === "staticStarContainer"
+//       ? ""
+//       : "";
+//   });
+// };
+// window.addEventListener("resize", window.onresize());
