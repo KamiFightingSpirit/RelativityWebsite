@@ -1,5 +1,7 @@
 import { helperFunction } from "./helperfunctions_CodeRefactor.js";
 import { planetLink } from "./planetLink.js";
+import { PlanetText } from "./PlanetText.js";
+import { PlanetInfo } from "./PlanetInfo.js";
 
 export class Planets {
   constructor(app) {
@@ -29,10 +31,12 @@ export class Planets {
     planetContainer.sortableChildren = true;
     stage.addChild(planetContainer);
 
+    //this addss the items to the main app in an array,  may use later if I separate out planets/info boxes
     this.app.planets = planetContainer.children;
 
     //Cinzel|Noto+Serif|Titilliu
     const planetTextOptions = {
+      align: "center",
       fontFamily: "Noto+Serif",
       fontSize: 37,
       fill: "white",
@@ -43,23 +47,15 @@ export class Planets {
       resolution: 3,
     };
 
-    //create an infographic for on hover
-    let sunInfo = new PIXI.Graphics()
-      .lineStyle(2, 0xc9b799)
-      .beginFill(0x0c0d0c)
-      .setTransform(_, _, _, 2, _, _)
-      .drawRoundedRect(0, 0, 400, 200, 50);
-    sunInfo.zIndex = 10000;
-    sunInfo.visible = false;
+    const sunInfo = new PlanetInfo(0xc9b799);
     planetContainer.addChild(sunInfo);
 
-    let sunText = new PIXI.Text("About\nThis\nSite", planetTextOptions);
-    sunText.position.set(
-      sunInfo.width - sunText.width * 2.6,
-      sunInfo.height / 10 - sunText.height / 5
+    const sunText = new PlanetText(
+      "About\nThis\nSite",
+      planetTextOptions,
+      50,
+      sunInfo
     );
-    sunText.style.fontSize = 50;
-    sunText.style.align = "center";
     sunInfo.addChild(sunText);
 
     let sunTexture = loader.resources["sunShrunk1.jpg"].texture;
@@ -88,21 +84,15 @@ export class Planets {
     planetContainer.addChild(backgroundSun);
 
     //create an infographic for on hover
-    let blackrockInfo = new PIXI.Graphics()
-      .lineStyle(2, 0xc3b6aa)
-      .beginFill(0x0c0d0c)
-      .setTransform(_, _, _, 2, _, _)
-      .drawRoundedRect(0, 0, 400, 200, 50);
-    blackrockInfo.zIndex = 10000;
-    blackrockInfo.visible = false;
+    let blackrockInfo = new PlanetInfo(0xc3b6aa);
     planetContainer.addChild(blackrockInfo);
 
-    let blackrockText = new PIXI.Text(
+    let blackrockText = new PlanetText(
       "Name: BlackRock \nTitle: Analyst \nYears: 2015-2017",
-      planetTextOptions
+      planetTextOptions,
+      _,
+      blackrockInfo
     );
-    blackrockText.style.align = "center";
-    blackrockText.position.set(61, 35); //moves text within the box
     blackrockInfo.addChild(blackrockText);
 
     let blackrockTexture = loader.resources["blackrock.jpg"].texture;
@@ -119,21 +109,15 @@ export class Planets {
     blackrockGraphic.url = "https://andrewdehuff.me/blackrock.html";
     planetContainer.addChild(blackrockGraphic);
 
-    let bridgewaterInfo = new PIXI.Graphics()
-      .lineStyle(2, 0xc07158)
-      .beginFill(0x0c0d0c)
-      .setTransform(_, _, _, 2, _, _)
-      .drawRoundedRect(0, 0, 400, 200, 50);
-    bridgewaterInfo.zIndex = 10000;
-    bridgewaterInfo.visible = false;
+    let bridgewaterInfo = new PlanetInfo(0xc07158);
     planetContainer.addChild(bridgewaterInfo);
 
-    let bridgewaterText = new PIXI.Text(
+    let bridgewaterText = new PlanetText(
       "Name: Bridgewater \nTitle: Associate \nYears: 2017-2018",
-      planetTextOptions
+      planetTextOptions,
+      _,
+      bridgewaterInfo
     );
-    bridgewaterText.style.align = "center";
-    bridgewaterText.position.set(48, 35); //moves text within the box
     bridgewaterInfo.addChild(bridgewaterText);
 
     let bridgewaterTexture = loader.resources["bridgewater.jpg"].texture;
@@ -151,21 +135,15 @@ export class Planets {
     planetContainer.addChild(bridgewaterGraphic);
 
     //create an infographic for on hover
-    let cyberburnInfo = new PIXI.Graphics()
-      .lineStyle(2, 0xcabaad)
-      .beginFill(0x0c0d0c)
-      .setTransform(_, _, _, 2, _, _)
-      .drawRoundedRect(0, 0, 400, 200, 50);
-    cyberburnInfo.zIndex = 10000;
-    cyberburnInfo.visible = false;
+    let cyberburnInfo = new PlanetInfo(0xcabaad);
     planetContainer.addChild(cyberburnInfo);
 
-    let cyberburnText = new PIXI.Text(
+    let cyberburnText = new PlanetText(
       "Name: Cyberburn \nTitle: Owner and CEO \nYears: 2009-2014",
-      planetTextOptions
+      planetTextOptions,
+      _,
+      cyberburnInfo
     );
-    cyberburnText.style.align = "center";
-    cyberburnText.position.set(20, 30); //moves text within the box
     cyberburnInfo.addChild(cyberburnText);
 
     let cyberburnTexture = loader.resources["cyberburn.jpg"].texture;
@@ -183,21 +161,16 @@ export class Planets {
     planetContainer.addChild(cyberburnGraphic);
 
     //create an infographic for on hover
-    let programmingExpInfo = new PIXI.Graphics()
-      .lineStyle(2, 0xc9b799)
-      .beginFill(0x0c0d0c)
-      .setTransform(_, _, _, 2, _, _)
-      .drawRoundedRect(0, 0, 400, 200, 50);
-    programmingExpInfo.zIndex = 10000;
-    programmingExpInfo.visible = false;
+    let programmingExpInfo = new PlanetInfo(0xc9b799);
     planetContainer.addChild(programmingExpInfo);
+
     //Create the text within the infographic
-    let programmingExpText = new PIXI.Text(
+    let programmingExpText = new PlanetText(
       "Tech and Programming Experience\nYears: 2009-Today",
-      planetTextOptions
+      planetTextOptions,
+      _,
+      programmingExpInfo
     );
-    programmingExpText.style.align = "center";
-    programmingExpText.position.set(14, 35);
     programmingExpInfo.addChild(programmingExpText);
 
     let programmingExpTexture = loader.resources["jupiter1k.jpg"].texture;
@@ -226,6 +199,7 @@ export class Planets {
     for (let planet of planetArr) {
       planetLink(planet);
     }
+
     let sunOrbitControl = {
       graphic: sunGraphic,
       texture: sunTexture,

@@ -44,8 +44,10 @@ export class Application {
 
     this.loader = new PIXI.Loader();
 
+    //creates objects to run initializations and load on
     this.addComponent((this.assets = new Assets(this)));
     this.addComponent((this.planets = new Planets(this)));
+    console.log(this.app.planets);
   }
 
   addComponent(comp) {
@@ -54,6 +56,7 @@ export class Application {
       runner.add(comp);
     }
   }
+
   render() {
     this.renderer.render(this.stage);
   }
