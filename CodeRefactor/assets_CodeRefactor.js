@@ -4,7 +4,7 @@ export class Assets {
   }
   init() {
     const loader = this.app.loader;
-    loader.baseUrl = "../assets/";
+    loader.baseUrl = "./assets/";
     loader
       .add("jupiter1k.jpg") //programmingexp
       .add("blackrock.jpg") //Blackrock

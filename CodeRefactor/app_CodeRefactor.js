@@ -1,3 +1,5 @@
+//Connects to the canvas element, loads up the renderer, kicks off the main loader
+
 import { Assets } from "./assets_CodeRefactor.js";
 import { Planets } from "./planets_CodeRefactor.js";
 // import { helperFunction } from "./ahelperfunctions.js";
