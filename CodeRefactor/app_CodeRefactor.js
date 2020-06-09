@@ -47,7 +47,6 @@ export class Application {
     //creates objects to run initializations and load on
     this.addComponent((this.assets = new Assets(this)));
     this.addComponent((this.planets = new Planets(this)));
-    console.log(this.app.planets);
   }
 
   addComponent(comp) {

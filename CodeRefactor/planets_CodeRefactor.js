@@ -2,6 +2,7 @@ import { helperFunction } from "./helperfunctions_CodeRefactor.js";
 import { planetLink } from "./planetLink.js";
 import { PlanetText } from "./PlanetText.js";
 import { PlanetInfo } from "./PlanetInfo.js";
+import { PlanetGraphic } from "./PlanetGraphic.js";
 
 export class Planets {
   constructor(app) {
@@ -31,10 +32,10 @@ export class Planets {
     planetContainer.sortableChildren = true;
     stage.addChild(planetContainer);
 
-    //this addss the items to the main app in an array,  may use later if I separate out planets/info boxes
+    //this adds the items to the main app in an array,  may use later if I separate out planets/info boxes
     this.app.planets = planetContainer.children;
 
-    //Cinzel|Noto+Serif|Titilliu
+    //Planet text options used for all popup info boxes : nice font options -- Cinzel|Noto+Serif|Titilliu
     const planetTextOptions = {
       align: "center",
       fontFamily: "Noto+Serif",
@@ -46,10 +47,12 @@ export class Planets {
       leading: 4,
       resolution: 3,
     };
+    //standard yscale to be used on most planets
+    const standardYScale = 2;
 
+    //******** SUN/ABOUTSITE *******//
+    //Create the info box for the sun
     const sunInfo = new PlanetInfo(0xc9b799);
-    planetContainer.addChild(sunInfo);
-
     const sunText = new PlanetText(
       "About\nThis\nSite",
       planetTextOptions,
@@ -57,21 +60,23 @@ export class Planets {
       sunInfo
     );
     sunInfo.addChild(sunText);
-
-    let sunTexture = loader.resources["sunShrunk1.jpg"].texture;
+    //Create the graphic for the sun
+    const sunTexture = loader.resources["sunShrunk1.jpg"].texture;
     sunTexture.frame = new PIXI.Rectangle(2, -50, 200, 100);
-    let sunGraphic = new PIXI.Graphics()
-      //add a semi-transparent corona
-      .lineStyle(12, 0xcc9f4c, 0.15, 0.5)
-      .beginTextureFill(sunTexture)
-      .drawCircle(0, 0, 135)
-      .endFill()
-      .setTransform(_, _, _, 2.1, _, _);
-    sunGraphic.interactive = true;
-    sunGraphic.hovering = false;
-    sunGraphic.info = sunInfo;
-    sunGraphic.url = "https://andrewdehuff.me/aboutsite.html";
-    planetContainer.addChild(sunGraphic);
+    const sunGLineStyle = new PIXI.LineStyle(200, 0xcc9f4c, 0.15, 0.5);
+    const sunRadius = 135;
+    const sunScale = 2.1;
+    const sunURL = "https://andrewdehuff.me/aboutsite.html";
+    const sunGraphic = new PlanetGraphic(
+      sunGLineStyle,
+      sunTexture,
+      sunRadius,
+      sunScale,
+      sunInfo,
+      sunURL
+    );
+    // 12, 0xcc9f4c, 0.15, 0.5 -- linestyle for the sun
+    console.log(sunGraphic);
 
     //add a background sun to create a double layered corona for the sun
     let backgroundSun = new PIXI.Graphics();
@@ -83,62 +88,82 @@ export class Planets {
     ];
     planetContainer.addChild(backgroundSun);
 
-    //create an infographic for on hover
-    let blackrockInfo = new PlanetInfo(0xc3b6aa);
-    planetContainer.addChild(blackrockInfo);
-
-    let blackrockText = new PlanetText(
+    //******** BLACKROCK *******//
+    //Create the info box for BlacRock
+    const blackrockInfo = new PlanetInfo(0xc3b6aa);
+    const blackrockText = new PlanetText(
       "Name: BlackRock \nTitle: Analyst \nYears: 2015-2017",
       planetTextOptions,
       _,
       blackrockInfo
     );
     blackrockInfo.addChild(blackrockText);
+    //Create the graphic for BlackRock
+    const blackrockTexture = loader.resources["blackrock.jpg"].texture;
+    blackrockTexture.frame = new PIXI.Rectangle(0, -300, 800, 200);
+    // const brLineStyle = (7, 0xc3b6aa, 0.25, 0.5);
 
-    let blackrockTexture = loader.resources["blackrock.jpg"].texture;
-    blackrockTexture.frame = new PIXI.Rectangle(0, -300, 800, 200); //Texture.frame (x, y, width, height)
-    let blackrockGraphic = new PIXI.Graphics()
-      .lineStyle(7, 0xc3b6aa, 0.25, 0.5) //add atmostphere
-      .beginTextureFill(blackrockTexture)
-      .setTransform(_, _, _, 2, _, _) //setTransform(x, y, x-scale,y-scale,xkew,yskew )
-      .drawCircle(0, 0, 60)
-      .endFill();
-    blackrockGraphic.interactive = true;
-    blackrockGraphic.hovering = false;
-    blackrockGraphic.info = blackrockInfo;
-    blackrockGraphic.url = "https://andrewdehuff.me/blackrock.html";
-    planetContainer.addChild(blackrockGraphic);
+    const brRadius = 60;
+    const brURL = "https://andrewdehuff.me/blackrock.html";
+    let brlineStyleOptions = {
+      width: 7,
+      color: 0xc3b6aa,
+      alpha: 0.25,
+      alignment: 0.5,
+    };
+    const blackrockGraphic = new PlanetGraphic(
+      brlineStyleOptions,
+      blackrockTexture,
+      brRadius,
+      standardYScale,
+      blackrockInfo,
+      brURL
+    );
 
-    let bridgewaterInfo = new PlanetInfo(0xc07158);
+    //******** BRIDGEWATER *******//
+    //Create the info box for BridgeWater
+    const bridgewaterInfo = new PlanetInfo(0xc07158);
     planetContainer.addChild(bridgewaterInfo);
-
-    let bridgewaterText = new PlanetText(
+    const bridgewaterText = new PlanetText(
       "Name: Bridgewater \nTitle: Associate \nYears: 2017-2018",
       planetTextOptions,
       _,
       bridgewaterInfo
     );
     bridgewaterInfo.addChild(bridgewaterText);
-
-    let bridgewaterTexture = loader.resources["bridgewater.jpg"].texture;
+    //Create the graphic for Bridgewater
+    const bridgewaterTexture = loader.resources["bridgewater.jpg"].texture;
     bridgewaterTexture.frame = new PIXI.Rectangle(0, -300, 800, 200);
-    let bridgewaterGraphic = new PIXI.Graphics()
-      .lineStyle(6, 0xc07158, 0.25, 0.8) //add atmostphere
-      .beginTextureFill(bridgewaterTexture)
-      .setTransform(_, _, _, 2, _, _)
-      .drawCircle(0, 0, 75)
-      .endFill();
-    bridgewaterGraphic.interactive = true;
-    bridgewaterGraphic.hovering = false;
-    bridgewaterGraphic.info = bridgewaterInfo;
-    bridgewaterGraphic.url = "https://andrewdehuff.me/bridgewater.html";
-    planetContainer.addChild(bridgewaterGraphic);
+    const bwLineStyle = [6, 0xc07158, 0.25, 0.8];
+    const bwRadius = 75;
+    const bwURL = "https://andrewdehuff.me/bridgewater.html";
+    const bridgewaterGraphic = new PlanetGraphic(
+      bwLineStyle,
+      bridgewaterTexture,
+      bwRadius,
+      standardYScale,
+      bridgewaterInfo,
+      bwURL
+    );
+    bridgewaterGraphic.lineStyle(6, 0xc07158, 0.25, 0.8);
+
+    // const brLineStyle = (7, 0xc3b6aa, 0.25, 0.5);
+    // const brRadius = 60;
+    // const brURL = "https://andrewdehuff.me/blackrock.html";
+    // const blackrockGraphic = new PlanetGraphic(
+    //   brLineStyle,
+    //   blackrockTexture,
+    //   brRadius,
+    //   standardYScale,
+    //   blackrockInfo,
+    //   brURL
+    // );
 
     //create an infographic for on hover
-    let cyberburnInfo = new PlanetInfo(0xcabaad);
+    const cyberburnInfo = new PlanetInfo(0xcabaad);
     planetContainer.addChild(cyberburnInfo);
 
-    let cyberburnText = new PlanetText(
+    const cyberburnText = new PlanetText(
       "Name: Cyberburn \nTitle: Owner and CEO \nYears: 2009-2014",
       planetTextOptions,
       _,
@@ -146,9 +171,9 @@ export class Planets {
     );
     cyberburnInfo.addChild(cyberburnText);
 
-    let cyberburnTexture = loader.resources["cyberburn.jpg"].texture;
+    const cyberburnTexture = loader.resources["cyberburn.jpg"].texture;
     cyberburnTexture.frame = new PIXI.Rectangle(0, -100, 400, 200); //Texture.frame (x, y, width, height)
-    let cyberburnGraphic = new PIXI.Graphics()
+    const cyberburnGraphic = new PIXI.Graphics()
       .lineStyle(8, 0xcabaad, 0.25, 0.5) //add atmostphere
       .beginTextureFill(cyberburnTexture)
       .setTransform(_, _, _, 2, _, _) //setTransform(x, y, x-scale,y-scale,xkew,yskew )
@@ -161,11 +186,10 @@ export class Planets {
     planetContainer.addChild(cyberburnGraphic);
 
     //create an infographic for on hover
-    let programmingExpInfo = new PlanetInfo(0xc9b799);
-    planetContainer.addChild(programmingExpInfo);
+    const programmingExpInfo = new PlanetInfo(0xc9b799);
 
     //Create the text within the infographic
-    let programmingExpText = new PlanetText(
+    const programmingExpText = new PlanetText(
       "Tech and Programming Experience\nYears: 2009-Today",
       planetTextOptions,
       _,
@@ -173,10 +197,10 @@ export class Planets {
     );
     programmingExpInfo.addChild(programmingExpText);
 
-    let programmingExpTexture = loader.resources["jupiter1k.jpg"].texture;
+    const programmingExpTexture = loader.resources["jupiter1k.jpg"].texture;
     programmingExpTexture.frame = new PIXI.Rectangle(0, -300, 900, 450);
 
-    let programmingExpGraphic = new PIXI.Graphics()
+    const programmingExpGraphic = new PIXI.Graphics()
       .lineStyle(12, 0xf2ddbb, 0.25, 0.5) //add atmostphere
       .beginTextureFill(programmingExpTexture)
       .setTransform(_, _, _, 2, _, _)
@@ -186,8 +210,17 @@ export class Planets {
     programmingExpGraphic.hovering = false;
     programmingExpGraphic.info = programmingExpInfo;
     programmingExpGraphic.url = "https://andrewdehuff.me/programmingexp.html";
-    planetContainer.addChild(programmingExpGraphic);
 
+    planetContainer.addChild(
+      sunInfo,
+      sunGraphic,
+      blackrockInfo,
+      blackrockGraphic,
+      bridgewaterInfo,
+      bridgewaterGraphic,
+      programmingExpInfo,
+      programmingExpGraphic
+    );
     //add in the links for each planet
     const planetArr = [
       sunGraphic,
